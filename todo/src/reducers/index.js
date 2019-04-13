@@ -4,8 +4,8 @@ export const DELETE = "DELETE";
 
 const initialState = {
   todos: [
-    { value: "Walk the dog", completed: false },
-    { value: "Do the dishes", completed: false }
+    { value: "Learn Redux", completed: false },
+    { value: "Learn more Redux", completed: false }
   ]
 };
 
@@ -24,7 +24,14 @@ export const reducer = (state = initialState, action) => {
         ...state,
         todos: newTodoArray
       };
-    //case DELETE:
+    case DELETE:
+      const filteredArray = state.todos.filter(todo => {
+        return !todo.completed ? todo : null;
+      });
+      return {
+        ...state,
+        todos: filteredArray
+      };
     default:
       return state;
   }

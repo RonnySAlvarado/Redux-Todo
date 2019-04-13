@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import TodoItem from "./TodoItem";
 import styled from "styled-components";
+import { deleteTodo } from "../actions/index.js";
 
 const TodoListStyle = styled.div`
   margin: 0 auto;
@@ -18,6 +19,12 @@ class TodoList extends React.Component {
     super(props);
   }
 
+  clearHandler = event => {
+    event.preventDefault();
+    console.log(this.props);
+    this.props.deleteTodo(this.props.todos);
+  };
+
   render() {
     return (
       <TodoListStyle>
@@ -26,6 +33,7 @@ class TodoList extends React.Component {
             return <TodoItem todo={todo} key={index} index={index} />;
           })}
         </div>
+        <button onClick={this.clearHandler}>Clear All Completed</button>
       </TodoListStyle>
     );
   }
@@ -37,4 +45,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(
+  mapStateToProps,
+  { deleteTodo }
+)(TodoList);

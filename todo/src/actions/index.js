@@ -17,3 +17,10 @@ export const toggleCompleted = index => {
     payload: index
   };
 };
+
+export const deleteTodo = todos => {
+  return {
+    type: DELETE,
+    payload: todos
+  };
+};

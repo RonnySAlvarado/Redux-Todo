@@ -1,11 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleCompleted } from "../actions/index.js";
-import styled from "styled-components";
-
-const completedTrue = styled.h2`
-  text-decoration: line-through;
-`;
 
 class TodoItem extends React.Component {
   constructor(props) {
