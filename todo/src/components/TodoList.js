@@ -23,7 +23,7 @@ class TodoList extends React.Component {
       <TodoListStyle>
         <div>
           {this.props.todos.map((todo, index) => {
-            return <TodoItem todo={todo} key={index} />;
+            return <TodoItem todo={todo} key={index} index={index} />;
           })}
         </div>
       </TodoListStyle>

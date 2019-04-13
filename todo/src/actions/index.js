@@ -10,3 +10,10 @@ export const addTodo = todo => {
     payload: newTodo
   };
 };
+
+export const toggleCompleted = index => {
+  return {
+    type: TOGGLE,
+    payload: index
+  };
+};

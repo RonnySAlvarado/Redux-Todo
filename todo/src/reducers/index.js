@@ -14,7 +14,16 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD:
       return { ...state, todos: state.todos.concat(action.payload) };
-    //case TOGGLE:
+    case TOGGLE:
+      const newTodoArray = state.todos.map((todo, index) => {
+        if (index === action.payload) {
+          return { value: todo.value, completed: !todo.completed };
+        } else return todo;
+      });
+      return {
+        ...state,
+        todos: newTodoArray
+      };
     //case DELETE:
     default:
       return state;
